@@ -110,6 +110,9 @@ void hapusDepan() {
   }
 
   head = head->next;
+
+  cout << "Data " << hapus->data.nama << " berhasil dihapus" << endl;
+
   delete hapus;
 }
 
@@ -133,6 +136,9 @@ void hapusBelakang() {
 
   tail = bantu;
   tail->next = NULL;
+
+  cout << "Data " << hapus->data.nama << " berhasil dihapus" << endl;
+
   delete hapus;
 }
 
@@ -158,6 +164,9 @@ void hapusTengah(int posisi) {
     }
 
     bantu2->next = bantu;
+
+    cout << "Data " << hapus->data.nama << " berhasil dihapus" << endl;
+
     delete hapus;
   }
 }
