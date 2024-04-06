@@ -3,8 +3,7 @@
 using namespace std;
 
 struct Data {
-  string nama;
-  long long int nim;
+  string nama, nim;
 };
 
 struct Node {
@@ -264,19 +263,19 @@ void tampil() {
 int main() {
   init();
 
-  insertDepan(Data{"Jawad", 23300001});
-  insertBelakang(Data{"Budi", 23300099});
-  insertTengah(Data{"Apri", 2311102081}, 2);
-  insertTengah(Data{"Farrel", 23300003}, 3);
-  insertTengah(Data{"Denis", 23300005}, 4);
-  insertTengah(Data{"Anis", 23300008}, 5);
-  insertTengah(Data{"Bowo", 23300015}, 6);
-  insertTengah(Data{"Gahar", 23300040}, 7);
-  insertTengah(Data{"Udin", 23300048}, 8);
-  insertTengah(Data{"Ucok", 23300050}, 9);
+  insertDepan(Data{"Jawad", "23300001"});
+  insertBelakang(Data{"Budi", "23300099"});
+  insertTengah(Data{"Apri", "2311102081"}, 2);
+  insertTengah(Data{"Farrel", "23300003"}, 3);
+  insertTengah(Data{"Denis", "23300005"}, 4);
+  insertTengah(Data{"Anis", "23300008"}, 5);
+  insertTengah(Data{"Bowo", "23300015"}, 6);
+  insertTengah(Data{"Gahar", "23300040"}, 7);
+  insertTengah(Data{"Udin", "23300048"}, 8);
+  insertTengah(Data{"Ucok", "23300050"}, 9);
 
-  string nama;
-  int pilihan, posisi, nim;
+  string nama, nim;
+  int pilihan, posisi;
   bool isRunning = true;
 
   do {
