@@ -3,7 +3,7 @@
 using namespace std;
 
 struct Data {
-  string nama, nim;
+  string nama_081, nim_081;
 };
 
 struct Node {
@@ -110,7 +110,7 @@ void hapusDepan() {
 
   head = head->next;
 
-  cout << "Data " << hapus->data.nama << " berhasil dihapus" << endl;
+  cout << "Data " << hapus->data.nama_081 << " berhasil dihapus" << endl;
 
   delete hapus;
 }
@@ -136,7 +136,7 @@ void hapusBelakang() {
   tail = bantu;
   tail->next = NULL;
 
-  cout << "Data " << hapus->data.nama << " berhasil dihapus" << endl;
+  cout << "Data " << hapus->data.nama_081 << " berhasil dihapus" << endl;
 
   delete hapus;
 }
@@ -164,7 +164,7 @@ void hapusTengah(int posisi) {
 
     bantu2->next = bantu;
 
-    cout << "Data " << hapus->data.nama << " berhasil dihapus" << endl;
+    cout << "Data " << hapus->data.nama_081 << " berhasil dihapus" << endl;
 
     delete hapus;
   }
@@ -177,11 +177,11 @@ void ubahDepan(Data data) {
     return;
   }
 
-  string nama_lama = head->data.nama;
+  string nama_lama = head->data.nama_081;
   head->data = data;
 
-  cout << "Data " << nama_lama << " telah diganti menjadi " << head->data.nama
-       << endl;
+  cout << "Data " << nama_lama << " telah diganti menjadi "
+       << head->data.nama_081 << endl;
 }
 
 // ubah tengah
@@ -205,11 +205,11 @@ void ubahTengah(Data data, int posisi) {
       nomor++;
     }
 
-    string nama_lama = bantu->data.nama;
+    string nama_lama = bantu->data.nama_081;
     bantu->data = data;
 
     cout << "Data " << nama_lama << " telah diganti menjadi "
-         << bantu->data.nama << endl;
+         << bantu->data.nama_081 << endl;
   }
 }
 
@@ -220,11 +220,11 @@ void ubahBelakang(Data data) {
     return;
   }
 
-  string nama_lama = tail->data.nama;
+  string nama_lama = tail->data.nama_081;
   tail->data = data;
 
-  cout << "Data " << nama_lama << " telah diganti menjadi " << tail->data.nama
-       << endl;
+  cout << "Data " << nama_lama << " telah diganti menjadi "
+       << tail->data.nama_081 << endl;
 }
 
 // hapus list
@@ -253,7 +253,7 @@ void tampil() {
   cout << "NAMA\tNIM" << endl;
 
   while (bantu != NULL) {
-    cout << bantu->data.nama << "\t" << bantu->data.nim << endl;
+    cout << bantu->data.nama_081 << "\t" << bantu->data.nim_081 << endl;
     bantu = bantu->next;
   }
 
