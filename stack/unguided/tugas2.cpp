@@ -30,16 +30,6 @@ void push(char data) {
   }
 }
 
-void pop() {
-  if (isStackEmpty()) {
-    cout << "Stack is empty!" << endl;
-    return;
-  }
-
-  word[top - 1] = '\0';
-  top--;
-}
-
 void display() {
   if (isStackEmpty()) {
     cout << "Stack is empty!" << endl;
