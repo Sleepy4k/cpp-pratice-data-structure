@@ -7,6 +7,10 @@ using namespace std;
 char word[100];
 int maximum = 100, minimum = 3, top = 0;
 
+bool isStackFull() {
+  return top == maximum;
+}
+
 bool isStackEmpty() {
   return top < 1;
 }
@@ -17,46 +21,74 @@ void clear() {
   }
 
   top = 0;
-  cout << "Stack is cleared!" << endl;
 }
 
-bool push(string data) {
-  int dataLength = data.length();
-
-  if (dataLength < minimum) {
-    cout << "Kata terlalu pendek! minimal 3 karakter" << endl;
-    return false;
-  } else if (dataLength > maximum) {
-    cout << "Kata terlalu panjang! maksimal 100 kakrakter" << endl;
-    return false;
+void push(char data) {
+  if (isStackFull()) cout << "Stack is full!" << endl;
+  else {
+    word[top] = data;
+    top++;
   }
-
-  if (!isStackEmpty()) clear();
-
-  top += dataLength;
-  strcpy(word, data.c_str());
-
-  return true;
 }
 
-void display() {
+void pop() {
   if (isStackEmpty()) {
     cout << "Stack is empty!" << endl;
     return;
   }
 
-  cout << "Word: " << word << endl;
-  cout << "This word is ";
+  word[top - 1] = '\0';
+  top--;
+}
 
-  for (int i = 0; i < top; i++) {
-    if (word[i] != word[top - i - 1]) {
-      cout << "not ";
-      break;
+void display(string data) {
+  if (isStackEmpty()) {
+    cout << "Stack is empty!" << endl;
+    return;
+  }
+
+  int dataLength = data.length();
+
+  for (int i = 0; i < dataLength; i++) {
+    if (data[i] != word[top - 1]) {
+      cout << "Kata bukan palindrom" << endl;
+      return;
+    }
+
+    pop();
+  }
+
+  cout << "Kata palindrom" << endl;
+}
+
+void palindrom(string data) {
+  int dataLength = data.length();
+
+  if (dataLength < minimum) {
+    cout << "Kata terlalu pendek! minimal 3 karakter" << endl;
+    return;
+  } else if (dataLength > maximum) {
+    cout << "Kata terlalu panjang! maksimal 100 kakrakter" << endl;
+    return;
+  }
+
+  if (!isStackEmpty()) clear();
+  
+  for (int i = 0; i < dataLength; i++) {
+    push(data[i]);
+  }
+}
+
+string removeAdditionalCharacter(string data) {
+  string result = "";
+
+  for (int i = 0; i < data.length(); i++) {
+    if (isalpha(data[i])) {
+      result += tolower(data[i]);
     }
   }
 
-  cout << "palindrome" << endl;
-  cout << endl;
+  return result;
 }
 
 int main() {
@@ -70,9 +102,10 @@ int main() {
     cout << "Input word: ";
     getline(cin, input);
 
-    if (push(input)) {
-      display();
-    }
+    input = removeAdditionalCharacter(input);
+
+    palindrom(input);
+    display(input);
 
     cout << "Do you want to continue? (Y/n): ";
     cin >> isRunning;
