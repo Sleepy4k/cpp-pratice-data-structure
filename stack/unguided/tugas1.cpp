@@ -72,7 +72,7 @@ void palindrom(string data) {
   }
 
   if (!isStackEmpty()) clear();
-  
+
   for (int i = 0; i < dataLength; i++) {
     push(data[i]);
   }
