@@ -4,9 +4,9 @@ using namespace std;
 
 // Init struct for Queue method
 struct Queue {
-  int id;
-  string name;
-  Queue *next, *prev;
+  int id_081;
+  string name_081;
+  Queue *next_081, *prev_081;
 } *head, *tail;
 
 // fungsi untuk inisisalisasi antrian
@@ -32,7 +32,7 @@ int queueSize() {
 
   while (current) {
     size++;
-    current = current->next;
+    current = current->next_081;
   }
 
   return size;
@@ -41,22 +41,22 @@ int queueSize() {
 // fungsi menambahkan antrian
 void enqueueAntrian(string data) {
   Queue *newQueue = new Queue();
-  newQueue->id = queueSize() + 1;
-  newQueue->name = data;
-  newQueue->next = nullptr;
-  newQueue->prev = nullptr;
+  newQueue->id_081 = queueSize() + 1;
+  newQueue->name_081 = data;
+  newQueue->next_081 = nullptr;
+  newQueue->prev_081 = nullptr;
 
   if (isEmpty()) {
     head = tail = newQueue;
-    tail->next = nullptr;
+    tail->next_081 = nullptr;
     return;
   }
 
-  tail->next = newQueue;
-  newQueue->prev = tail;
+  tail->next_081 = newQueue;
+  newQueue->prev_081 = tail;
   tail = newQueue;
 
-  cout << "antrian " << data << " telah ditambahkan dengan nomor antrian " << newQueue->id << endl;
+  cout << "antrian " << data << " telah ditambahkan dengan nomor antrian " << newQueue->id_081 << endl;
 }
 
 // fungsi mengurangi antrian
@@ -73,9 +73,9 @@ void dequeueAntrian() {
     return;
   }
 
-  head = head->next;
+  head = head->next_081;
 
-  cout << "antrian " << temp->name << " telah selesai dilayani pada antrian " << temp->id << endl;
+  cout << "antrian " << temp->name_081 << " telah selesai dilayani pada antrian " << temp->id_081 << endl;
 
   delete temp;
 }
@@ -91,7 +91,7 @@ void clearQueue() {
 
   while (current) {
     Queue *temp = current;
-    current = current->next;
+    current = current->next_081;
     delete temp;
   }
 
@@ -110,8 +110,8 @@ void viewQueue() {
 
   cout << "antrian yang sedang dilayani:" << endl;
   while (current) {
-    cout << "antrian " << current->id << " - " << current->name << endl;
-    current = current->next;
+    cout << "antrian " << current->id_081 << " - " << current->name_081 << endl;
+    current = current->next_081;
   }
 }
 

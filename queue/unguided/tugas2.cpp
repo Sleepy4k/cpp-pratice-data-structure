@@ -4,8 +4,8 @@ using namespace std;
 
 // Init struct for Queue method
 struct Queue {
-  string name, nim;
-  Queue *next, *prev;
+  string name_081, nim_081;
+  Queue *next_081, *prev_081;
 } *head, *tail;
 
 // fungsi untuk inisisalisasi antrian
@@ -31,7 +31,7 @@ int queueSize() {
 
   while (current) {
     size++;
-    current = current->next;
+    current = current->next_081;
   }
 
   return size;
@@ -40,19 +40,19 @@ int queueSize() {
 // fungsi menambahkan antrian
 void enqueueAntrian(string name, string nim) {
   Queue *newQueue = new Queue();
-  newQueue->name = name;
-  newQueue->nim = nim;
-  newQueue->next = nullptr;
-  newQueue->prev = nullptr;
+  newQueue->name_081 = name;
+  newQueue->nim_081 = nim;
+  newQueue->next_081 = nullptr;
+  newQueue->prev_081 = nullptr;
 
   if (isEmpty()) {
     head = tail = newQueue;
-    tail->next = nullptr;
+    tail->next_081 = nullptr;
     return;
   }
 
-  tail->next = newQueue;
-  newQueue->prev = tail;
+  tail->next_081 = newQueue;
+  newQueue->prev_081 = tail;
   tail = newQueue;
 
   cout << "antrian " << name << " telah ditambahkan dengan nim " << nim << endl;
@@ -72,9 +72,9 @@ void dequeueAntrian() {
     return;
   }
 
-  head = head->next;
+  head = head->next_081;
 
-  cout << "antrian " << temp->name << " telah selesai dilayani dengan nim " << temp->nim << endl;
+  cout << "antrian " << temp->name_081 << " telah selesai dilayani dengan nim " << temp->nim_081 << endl;
 
   delete temp;
 }
@@ -90,7 +90,7 @@ void clearQueue() {
 
   while (current) {
     Queue *temp = current;
-    current = current->next;
+    current = current->next_081;
     delete temp;
   }
 
@@ -109,8 +109,8 @@ void viewQueue() {
 
   cout << "antrian yang sedang dilayani:" << endl;
   while (current) {
-    cout << "antrian " << current->name << " - " << current->nim << endl;
-    current = current->next;
+    cout << "antrian " << current->name_081 << " - " << current->nim_081 << endl;
+    current = current->next_081;
   }
 }
 
