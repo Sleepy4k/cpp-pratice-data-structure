@@ -140,11 +140,12 @@ void find(Pohon *node) {
   }
 
   cout << "\nData Node : " << node->data << endl;
-  cout << "Parent Node : " << root->data << endl;
+  cout << "Root : " << root->data << endl;
 
   if (!node->parent) {
     cout << "Parent Node : Tidak ada" << endl;
-    return;
+  } else {
+    cout << "Parent Node : " << node->parent->data << endl;
   }
 
   if (node->parent != nullptr && node->parent->left != node && node->parent->right == node) {
@@ -155,21 +156,17 @@ void find(Pohon *node) {
     cout << "Sibling : Tidak ada" << endl;
   }
 
-  cout << "Parent Node : " << node->parent->data << endl;
-
   if (!node->left) {
     cout << "Child Kiri : Tidak ada" << endl;
-    return;
+  } else {
+    cout << "Child Kiri : " << node->left->data << endl;
   }
-
-  cout << "Child Kiri : " << node->left->data << endl;
 
   if (!node->right) {
     cout << "Child Kanan : Tidak ada" << endl;
-    return;
+  } else {
+    cout << "Child Kanan : " << node->right->data << endl;
   }
-
-  cout << "Child Kanan : " << node->right->data << endl;
 }
 
 // Penelusuran (Traversal)
@@ -222,10 +219,7 @@ void deleteTree(Pohon *node) {
     return;
   }
 
-  if (!node) {
-    cout << "\nNode tidak ditemukan" << endl;
-    return;
-  }
+  if (!node) return;
 
   if (node != root) {
     node->parent->left = nullptr;
@@ -251,10 +245,7 @@ void deleteSub(Pohon *node) {
     return;
   }
 
-  if (!node) {
-    cout << "\nNode tidak ditemukan" << endl;
-    return;
-  }
+  if (!node) return;
 
   deleteTree(node->left);
   deleteTree(node->right);
@@ -303,11 +294,12 @@ int height(Pohon *node = root) {
 // Karakteristik Tree
 void charateristic() {
   cout << "\nSize Tree : " << size() << endl;
-  cout << " Height Tree : " << height() << endl;
-  cout << " Average Node of Tree : " << size() / height() << endl;
+  cout << "Height Tree : " << height() << endl;
+  cout << "Average Node of Tree : " << size() / height() << endl;
 }
 
 int main() {
+  init();
   buatNode('A');
 
   Pohon *nodeB, *nodeC, *nodeD, *nodeE, *nodeF, *nodeG, *nodeH, *nodeI, *nodeJ;
